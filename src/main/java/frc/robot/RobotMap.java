@@ -24,6 +24,8 @@ public class RobotMap {
   // public static int rangefinderPort = 1;
   // public static int rangefinderModule = 1;
 
+  public static final int SERVO_CHANNEL = 0;
+  
   public static final int SPMAX = 11;
   public static final int SPMAX_TICKS_PER_REV = 1;
 }
