@@ -9,8 +9,9 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import frc.robot.commands.PIDTeleop;
+import frc.robot.commands.Teleop;
 import frc.robot.commands.RunSparkPID;
+import frc.robot.subsystems.ServoSubsystem;
 import frc.robot.subsystems.SparkSubsystem;
 
 /**
@@ -27,6 +28,8 @@ public class Robot extends TimedRobot {
 	private static double IZone = 1;
 
 	public static SparkSubsystem sparkSubsystem = new SparkSubsystem(P, I, D, IZone);
+	
+	public static ServoSubsystem servoSubsystem = new ServoSubsystem();
 
 	public static OI oi;
 	/**
@@ -92,7 +95,7 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopInit() {
-		new PIDTeleop().start();
+		new Teleop().start();
 	}
 
 	/**

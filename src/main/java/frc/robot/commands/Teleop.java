@@ -15,10 +15,10 @@ import frc.robot.Robot;
 /**
  * An example command.  You can replace me with your own command.
  */
-public class PIDTeleop extends Command {
+public class Teleop extends Command {
 
-	public PIDTeleop() {
-		super ("PID Teleop");
+	public Teleop() {
+		super ("Teleop");
 		// Use requires() here to declare subsystem dependencies
 		// requires(Robot.sparkSubsystem);
 	}
@@ -28,10 +28,14 @@ public class PIDTeleop extends Command {
 	protected void initialize() {
 		Shuffleboard.startRecording();
 
-		Robot.oi.getPosition1Button().whenReleased(new RunSparkPID(-2));
-		Robot.oi.getPosition2Button().whenReleased(new RunSparkPID(2));
-		Robot.oi.getPosition3Button().whenReleased(new RunSparkPID(-4));
-		Robot.oi.getPosition4Button().whenReleased(new RunSparkPID(4));
+		Robot.oi.getWheelButton1().whenReleased(new RunSparkPID(-2));
+		Robot.oi.getWheelButton2().whenReleased(new RunSparkPID(2));
+		Robot.oi.getWheelButton4().whenReleased(new RunSparkPID(-4));
+		Robot.oi.getWheelButton3().whenReleased(new RunSparkPID(4));
+
+		
+		Robot.oi.getPanelButton6().whenReleased(new RunServo(1));
+		Robot.oi.getPanelButton8().whenReleased(new RunServo(0));
 	}
 
 	// Called repeatedly when this Command is scheduled to run
